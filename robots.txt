@@ -1,0 +1,6 @@
+# Experiment build. Nothing here should be indexed while the figures are
+# placeholders and the site carries no real trading record.
+# Revisit this file, and the <meta name="robots"> tag in both pages,
+# before any public launch.
+User-agent: *
+Disallow: /
