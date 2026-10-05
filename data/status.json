@@ -1,22 +1,26 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-10-04T23:57:35Z",
+  "generated_gmt": "2026-10-05T00:05:38Z",
   "source": "LIVE",
   "demo_notice": false,
   "online": true,
   "state": "online",
-  "last_heartbeat_gmt": "2026-10-04T23:57:30Z",
+  "last_heartbeat_gmt": "2026-10-05T00:05:30Z",
   "brain_version": "ai-first-0.1",
   "symbol": "XAUUSD",
   "equity_curve": [
     [
       "2026-10-04",
       100.0
+    ],
+    [
+      "2026-10-05",
+      100.0
     ]
   ],
   "return_1m": null,
   "return_3m": null,
-  "return_12m": null,
+  "return_12m": 0.0,
   "max_drawdown": 0.0,
   "current_drawdown": 0.0,
   "trades_total": 0,
