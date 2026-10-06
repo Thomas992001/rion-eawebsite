@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-10-06T18:23:31Z",
+  "generated_gmt": "2026-10-06T18:31:36Z",
   "source": "LIVE",
   "demo_notice": false,
   "online": true,
   "state": "online",
-  "last_heartbeat_gmt": "2026-10-06T18:22:43Z",
+  "last_heartbeat_gmt": "2026-10-06T18:30:43Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-05T14:50:00Z",
   "symbol": "XAUUSD",
@@ -16,19 +16,26 @@
     ],
     [
       "2026-10-06",
-      86.66
+      86.5
     ]
   ],
-  "return_1m": -13.34,
-  "return_3m": -13.34,
-  "return_12m": -13.34,
-  "max_drawdown": 16.07,
-  "current_drawdown": 16.07,
-  "trades_total": 91,
-  "win_rate": 27.5,
-  "avg_hold_minutes": 47,
-  "trades_today": 74,
+  "return_1m": -13.5,
+  "return_3m": -13.5,
+  "return_12m": -13.5,
+  "max_drawdown": 16.23,
+  "current_drawdown": 16.23,
+  "trades_total": 92,
+  "win_rate": 27.2,
+  "avg_hold_minutes": 46,
+  "trades_today": 75,
   "closed_trades_recent": [
+    {
+      "closed_gmt": "2026-10-06T18:22:54Z",
+      "side": "BUY",
+      "hold_minutes": 3,
+      "result_points": -218.0,
+      "result_pct": -0.19
+    },
     {
       "closed_gmt": "2026-10-06T18:17:33Z",
       "side": "SELL",
@@ -105,13 +112,6 @@
       "hold_minutes": 3,
       "result_points": 321.0,
       "result_pct": 0.264
-    },
-    {
-      "closed_gmt": "2026-10-06T14:18:50Z",
-      "side": "SELL",
-      "hold_minutes": 11,
-      "result_points": 962.0,
-      "result_pct": 0.798
     }
   ],
   "broker_page_url": ""
