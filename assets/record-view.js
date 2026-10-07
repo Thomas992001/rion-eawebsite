@@ -134,7 +134,9 @@
     metric(summary, words("今日展示平仓（GMT）", "Displayed closes today (GMT)"), number(today), "recordToday");
     metric(summary, words("买入 / 卖出", "Buy / Sell"), buys + " / " + (rows.length - buys), "recordSides");
     metric(summary, words("平均持仓时长", "Mean holding time"), rows.length ? minute(holds / rows.length) : "—", "recordHold");
-    metric(summary, words("本期全部已平仓", "All current-period closes"), number(data.trades_total), "recordCurrentCount");
+    // Match the unified summary and ledger, including retained pre-reset winners.
+    // Keep the writer's current-period count unchanged for account metrics below.
+    metric(summary, words("累计展示已平仓", "Total displayed closes"), number(rows.length), "recordTotalCount");
     view.appendChild(summary);
     // Genuine account percentages stay in the same section, explicitly scoped
     // to the reset period, not recomputed from the filtered historical sample.
