@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-10-07T03:48:22Z",
+  "generated_gmt": "2026-10-07T03:56:26Z",
   "source": "LIVE",
   "demo_notice": false,
   "online": true,
   "state": "online",
-  "last_heartbeat_gmt": "2026-10-07T03:47:43Z",
+  "last_heartbeat_gmt": "2026-10-07T03:55:43Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-05T14:50:00Z",
   "symbol": "XAUUSD",
@@ -20,19 +20,40 @@
     ],
     [
       "2026-10-07",
-      87.51
+      86.2
     ]
   ],
-  "return_1m": -12.49,
-  "return_3m": -12.49,
-  "return_12m": -12.49,
+  "return_1m": -13.8,
+  "return_3m": -13.8,
+  "return_12m": -13.8,
   "max_drawdown": 19.58,
-  "current_drawdown": 15.24,
-  "trades_total": 116,
-  "win_rate": 31.9,
-  "avg_hold_minutes": 46,
-  "trades_today": 13,
+  "current_drawdown": 16.51,
+  "trades_total": 119,
+  "win_rate": 31.1,
+  "avg_hold_minutes": 48,
+  "trades_today": 16,
   "closed_trades_recent": [
+    {
+      "closed_gmt": "2026-10-07T03:49:39Z",
+      "side": "SELL",
+      "hold_minutes": 102,
+      "result_points": -628.0,
+      "result_pct": -0.547
+    },
+    {
+      "closed_gmt": "2026-10-07T03:49:39Z",
+      "side": "SELL",
+      "hold_minutes": 101,
+      "result_points": -480.0,
+      "result_pct": -0.416
+    },
+    {
+      "closed_gmt": "2026-10-07T03:49:39Z",
+      "side": "SELL",
+      "hold_minutes": 103,
+      "result_points": -624.0,
+      "result_pct": -0.538
+    },
     {
       "closed_gmt": "2026-10-07T03:33:33Z",
       "side": "SELL",
@@ -95,27 +116,6 @@
       "hold_minutes": 38,
       "result_points": 1158.0,
       "result_pct": 1.042
-    },
-    {
-      "closed_gmt": "2026-10-07T01:21:22Z",
-      "side": "SELL",
-      "hold_minutes": 36,
-      "result_points": 1088.0,
-      "result_pct": 0.988
-    },
-    {
-      "closed_gmt": "2026-10-07T00:12:48Z",
-      "side": "SELL",
-      "hold_minutes": 32,
-      "result_points": -389.0,
-      "result_pct": -0.352
-    },
-    {
-      "closed_gmt": "2026-10-07T00:12:48Z",
-      "side": "SELL",
-      "hold_minutes": 44,
-      "result_points": -89.0,
-      "result_pct": -0.081
     }
   ],
   "broker_page_url": ""
