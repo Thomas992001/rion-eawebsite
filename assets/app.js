@@ -348,6 +348,127 @@
     });
   }
 
+  /* previous-profits/v1: selected historical examples, never performance inputs. */
+  function drawPreviousProfits(data) {
+    var body = $("tradesBody");
+    if (!body) return;
+    var ledger = body.closest(".ledger");
+    if (!ledger || !ledger.parentNode) return;
+    var en = (document.documentElement.lang || "zh").slice(0, 2) === "en";
+    var since = data.record_since_gmt;
+    var scope = $("publicRecordScope");
+    if (!scope) {
+      scope = document.createElement("p");
+      scope.id = "publicRecordScope";
+      scope.className = "scope";
+      var figures = ledger.parentNode.querySelector(".figures");
+      ledger.parentNode.insertBefore(scope, figures || ledger);
+    }
+    scope.hidden = !since;
+    var byOpen = data.record_by === "open";
+    scope.textContent = !since ? "" : (en
+      ? "Current record: all closed trades " + (byOpen ? "opened" : "closed") + " on or after " + since + " (GMT), including wins and losses."
+      : "本期统计：仅包含 " + since + "（GMT）起" + (byOpen ? "开仓且已平仓" : "平仓") + "的全部交易，包含盈利与亏损。");
+
+    // A pre-upgrade writer does not publish record_by: do not guess its boundary.
+    if (since && data.record_by !== "open" && data.record_by !== "close") {
+      scope.textContent = en ? "Public record starts at " + since + " (GMT)."
+        : "本期记录起点：" + since + "（GMT）。";
+    }
+
+    var selected = data.previous_profits;
+    var panel = $("previousProfitsPanel");
+    if (!selected || selected.enabled !== true || !since || selected.included_in_performance !== false) {
+      if (panel) { panel.hidden = true; panel.replaceChildren(); }
+      return;
+    }
+    if (!panel) {
+      panel = document.createElement("div");
+      panel.id = "previousProfitsPanel";
+      panel.className = "ledger";
+      ledger.parentNode.insertBefore(panel, ledger.nextSibling);
+    }
+    // Preserve expansion across ordinary heartbeat refreshes, but not across resets.
+    if (panel.getAttribute("data-cutoff") !== since) {
+      panel.setAttribute("data-limit", "12");
+      panel.setAttribute("data-cutoff", since);
+    }
+    var limit = Math.max(12, parseInt(panel.getAttribute("data-limit"), 10) || 12);
+    panel.hidden = false;
+    panel.replaceChildren();
+    var head = document.createElement("div");
+    head.className = "chart-head";
+    var title = document.createElement("span");
+    title.className = "kicker";
+    title.textContent = en ? "Selected historical winning trades" : "历史盈利交易精选";
+    head.appendChild(title);
+    panel.appendChild(head);
+    var note = document.createElement("p");
+    note.className = "scope";
+    note.textContent = en
+      ? "Only profitable trades " + (byOpen ? "opened" : "closed") + " before " + since + " (GMT). This is a selected list, not the complete historical performance. Excluded from current returns, win rate and drawdown. Points show price movement, not an account return."
+      : "仅展示 " + since + "（GMT）之前" + (byOpen ? "开仓" : "平仓") + "的盈利交易，不代表完整历史表现；不计入本期收益、胜率与回撤。点数表示价格变动，不是账户收益率。";
+    panel.appendChild(note);
+
+    var rows = (Array.isArray(selected.trades) ? selected.trades : []).filter(function (t) {
+      return t && t.is_profitable === true && typeof t.result_points === "number" && isFinite(t.result_points);
+    });
+    if (!rows.length) {
+      var empty = document.createElement("p");
+      empty.className = "s-meta";
+      empty.textContent = en ? "No historical winning trades to display." : "暂无可展示的历史盈利交易。";
+      panel.appendChild(empty);
+      return;
+    }
+    var table = document.createElement("table");
+    table.className = "trades";
+    var thead = document.createElement("thead"), header = document.createElement("tr");
+    (en ? ["Closed (GMT)", "Side", "Holding time", "Price move (pts)"]
+      : ["平仓时间 (GMT)", "方向", "持仓时长", "价格变动（点）"]).forEach(function (s, i) {
+      var th = document.createElement("th");
+      th.textContent = s;
+      if (i === 3) th.className = "r";
+      header.appendChild(th);
+    });
+    thead.appendChild(header); table.appendChild(thead);
+    var tbody = document.createElement("tbody");
+    rows.slice(0, limit).forEach(function (t) {
+      var tr = document.createElement("tr");
+      var points = t.result_points;
+      var text = [String(t.closed_gmt || "").slice(0, 19).replace("T", " "),
+        t.side === "BUY" ? "BUY" : t.side === "SELL" ? "SELL" : "—",
+        minutesText(t.hold_minutes),
+        (points > 0 ? "+" : points < 0 ? "−" : "") + Math.abs(points).toFixed(1)];
+      text.forEach(function (s, i) {
+        var td = document.createElement("td");
+        td.textContent = s; // No trade-supplied HTML is ever interpreted.
+        if (i === 1) td.className = t.side === "BUY" ? "buy" : "sell";
+        if (i === 3) td.className = "r " + (points >= 0 ? "pos" : "neg");
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody); panel.appendChild(table);
+    var count = document.createElement("p");
+    count.className = "s-meta";
+    count.textContent = en ? "Showing " + Math.min(limit, rows.length) + " of " + rows.length + " selected trades."
+      : "已显示 " + Math.min(limit, rows.length) + " / " + rows.length + " 笔精选交易。";
+    panel.appendChild(count);
+    if (limit < rows.length) {
+      var more = document.createElement("button");
+      more.type = "button";
+      more.className = "btn";
+      more.textContent = en ? "Show more historical winners" : "显示更多历史盈利交易";
+      more.addEventListener("click", function () {
+        panel.setAttribute("data-limit", String(limit + 12));
+        drawPreviousProfits(data);
+        queueSnap();
+      });
+      panel.appendChild(more);
+    }
+  }
+
+
   /* ---------- reveal ---------- */
   function wireReveal() {
     var items = document.querySelectorAll(".reveal");
@@ -427,6 +548,7 @@
     chart.drawn = true;
 
     drawTrades(data.closed_trades_recent);
+    drawPreviousProfits(data);
 
     // the drawdown is repeated inside a sentence, so it cannot be read alone
     setText("bindDD", "−" + pct(data.max_drawdown, false));
