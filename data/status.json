@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-10-08T15:54:20Z",
+  "generated_gmt": "2026-10-08T16:02:25Z",
   "source": "LIVE",
   "demo_notice": false,
   "online": true,
   "state": "online",
-  "last_heartbeat_gmt": "2026-10-08T15:53:43Z",
+  "last_heartbeat_gmt": "2026-10-08T16:01:43Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-07T09:19:20Z",
   "record_by": "open",
@@ -511,18 +511,18 @@
   "equity_curve": [
     [
       "2026-10-07",
-      94.83
+      94.87
     ],
     [
       "2026-10-08",
-      85.39
+      85.5
     ]
   ],
-  "return_1m": -14.61,
-  "return_3m": -14.61,
-  "return_12m": -14.61,
-  "max_drawdown": 19.95,
-  "current_drawdown": 17.47,
+  "return_1m": -14.5,
+  "return_3m": -14.5,
+  "return_12m": -14.5,
+  "max_drawdown": 19.81,
+  "current_drawdown": 17.34,
   "trades_total": 123,
   "win_rate": 29.3,
   "avg_hold_minutes": 28,
@@ -533,84 +533,84 @@
       "side": "BUY",
       "hold_minutes": 30,
       "result_points": -1010.0,
-      "result_pct": -0.957
+      "result_pct": -0.949
     },
     {
       "closed_gmt": "2026-10-08T15:10:48Z",
       "side": "BUY",
       "hold_minutes": 30,
       "result_points": -1201.0,
-      "result_pct": -1.126
+      "result_pct": -1.116
     },
     {
       "closed_gmt": "2026-10-08T15:10:48Z",
       "side": "BUY",
       "hold_minutes": 34,
       "result_points": -1625.0,
-      "result_pct": -1.5
+      "result_pct": -1.488
     },
     {
       "closed_gmt": "2026-10-08T14:34:39Z",
       "side": "BUY",
       "hold_minutes": 53,
       "result_points": 1641.0,
-      "result_pct": 1.538
+      "result_pct": 1.525
     },
     {
       "closed_gmt": "2026-10-08T14:34:39Z",
       "side": "BUY",
       "hold_minutes": 53,
       "result_points": 1760.0,
-      "result_pct": 1.677
+      "result_pct": 1.663
     },
     {
       "closed_gmt": "2026-10-08T14:34:39Z",
       "side": "BUY",
       "hold_minutes": 65,
       "result_points": 1610.0,
-      "result_pct": 1.558
+      "result_pct": 1.545
     },
     {
       "closed_gmt": "2026-10-08T14:34:39Z",
       "side": "BUY",
       "hold_minutes": 68,
       "result_points": 1674.0,
-      "result_pct": 1.647
+      "result_pct": 1.632
     },
     {
       "closed_gmt": "2026-10-08T13:33:15Z",
       "side": "BUY",
       "hold_minutes": 12,
       "result_points": 302.0,
-      "result_pct": 0.298
+      "result_pct": 0.295
     },
     {
       "closed_gmt": "2026-10-08T13:11:43Z",
       "side": "SELL",
       "hold_minutes": 4,
       "result_points": -268.0,
-      "result_pct": -0.264
+      "result_pct": -0.261
     },
     {
       "closed_gmt": "2026-10-08T13:11:43Z",
       "side": "SELL",
       "hold_minutes": 4,
       "result_points": -298.0,
-      "result_pct": -0.292
+      "result_pct": -0.29
     },
     {
       "closed_gmt": "2026-10-08T13:11:43Z",
       "side": "SELL",
       "hold_minutes": 1,
       "result_points": -221.0,
-      "result_pct": -0.216
+      "result_pct": -0.214
     },
     {
       "closed_gmt": "2026-10-08T13:05:27Z",
       "side": "SELL",
       "hold_minutes": 5,
       "result_points": -235.0,
-      "result_pct": -0.23
+      "result_pct": -0.228
     }
   ],
   "broker_page_url": ""
