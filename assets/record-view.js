@@ -7,7 +7,7 @@
   var host = root.querySelector(".wrap"), heading = root.querySelector(".s-title");
   if (!host || !heading) return;
   var en = (document.documentElement.lang || "zh").slice(0, 2) === "en";
-  var NS = "http://www.w3.org/2000/svg", CACHE = "rion.unified-record.cache.v2";
+  var NS = "http://www.w3.org/2000/svg", CACHE = "rion.unified-record.cache.v3";
   var url = document.documentElement.getAttribute("data-status") || "data/status.json";
   var last = null, rows = [], limit = 12, cutoff = null, busy = false;
   function words(zh, english) { return en ? english : zh; }
@@ -138,20 +138,28 @@
     // Keep the writer's current-period count unchanged for account metrics below.
     metric(summary, words("累计展示已平仓", "Total displayed closes"), number(rows.length), "recordTotalCount");
     view.appendChild(summary);
-    // Genuine account percentages stay in the same section, explicitly scoped
-    // to the reset period, not recomputed from the filtered historical sample.
+    // All account metrics come from the writer's complete version cohort.
+    // Selected historical winners never become inputs to these metrics.
+    // Rolling returns are not a substitute for the cumulative period return.
     var account = node("div", "record-account");
-    account.appendChild(node("p", "scope", words("本期账户指标 · ", "Current-period account metrics · ") +
-      (data.record_since_gmt ? stamp(data.record_since_gmt) + " GMT" : words("自记录开始", "Since inception"))));
+    var versioned = typeof data.record_version === "string" && data.record_version.trim() !== "";
+    var period = versioned ? words("本版", "Version") : words("本期", "Current-period");
+    account.appendChild(node("p", "scope", period + words("账户指标", " account metrics") +
+      (versioned ? " · v" + data.record_version : "") + " · " +
+      (data.record_since_gmt ? words("起点 ", "Since ") + stamp(data.record_since_gmt) + " UTC" : words("自记录开始", "Since inception")) +
+      (data.record_by === "open" ? words("（按开仓时间）", " (by opening time)") :
+        data.record_by === "close" ? words("（按平仓时间）", " (by closing time)") : "")));
+    account.appendChild(node("p", "scope", words("包含该统计期全部已平仓交易的盈利与亏损；历史盈利精选不计入以下账户指标。", "Includes all wins and losses in the stated period; selected historical winners are excluded from the account metrics below.") +
+      (!finite(data.period_return) ? words(" 累计收益待数据更新。", " Cumulative return is awaiting updated data.") : "")));
     var metrics = node("div", "row");
-    metric(metrics, words("近 1 月收益", "1-month return"), percent(data.return_1m), "recordRet1");
-    metric(metrics, words("近 3 月收益", "3-month return"), percent(data.return_3m), "recordRet3");
-    metric(metrics, words("近 12 月收益", "12-month return"), percent(data.return_12m), "recordRet12");
+    metric(metrics, period + words("累计收益", " cumulative return"), percent(data.period_return), "recordPeriodReturn");
     metric(metrics, words("最大已平仓回撤", "Max closed-trade drawdown"), data.trades_total ? percent(-Math.abs(data.max_drawdown)) : "—", "recordMaxDD");
     metric(metrics, words("当前已平仓回撤", "Current closed-trade drawdown"), data.trades_total ? percent(-Math.abs(data.current_drawdown)) : "—", "recordCurrentDD");
-    metric(metrics, words("本期胜率", "Current-period win rate"), finite(data.win_rate) ? number(data.win_rate) + "%" : "—", "recordWinRate");
+    metric(metrics, period + words("胜率", " win rate"), finite(data.win_rate) ? number(data.win_rate) + "%" : "—", "recordWinRate");
+    metric(metrics, period + words("已平仓（笔）", " closed trades"), number(data.trades_total), "recordPeriodCount");
+    metric(metrics, period + words("平均持仓时长", " mean holding time"), minute(data.avg_hold_minutes), "recordPeriodHold");
     if (data.trades_total === 0) {
-      account.replaceChildren(node("p", "scope", words("重置后尚无已平仓交易，账户指标将在首笔平仓后更新。", "No post-reset trades have closed yet; account metrics will appear after the first close.")));
+      account.appendChild(node("p", "scope", words("该统计期尚无已平仓交易，账户指标将在首笔平仓后更新。", "No trades in this period have closed yet; account metrics will appear after the first close.")));
     } else account.appendChild(metrics);
     view.appendChild(account);
     var ledger = node("div", "ledger");
