@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-10-28T23:51:50Z",
+  "generated_gmt": "2026-10-29T00:00:00Z",
   "source": "LIVE",
   "demo_notice": false,
   "online": true,
   "state": "online",
-  "last_heartbeat_gmt": "2026-10-28T23:51:08Z",
+  "last_heartbeat_gmt": "2026-10-28T23:59:08Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-12T15:22:20Z",
   "record_by": "open",
@@ -1427,6 +1427,10 @@
     [
       "2026-10-28",
       120.66
+    ],
+    [
+      "2026-10-29",
+      120.66
     ]
   ],
   "period_return": 20.66,
@@ -1438,7 +1442,7 @@
   "trades_total": 409,
   "win_rate": 48.2,
   "avg_hold_minutes": 35,
-  "trades_today": 35,
+  "trades_today": 0,
   "closed_trades_recent": [
     {
       "opened_gmt": "2026-10-28T23:25:53Z",
