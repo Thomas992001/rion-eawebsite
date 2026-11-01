@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-11-01T23:00:40Z",
+  "generated_gmt": "2026-11-01T23:08:45Z",
   "source": "LIVE",
   "demo_notice": false,
-  "online": false,
-  "state": "idle",
-  "last_heartbeat_gmt": "2026-11-01T22:59:49Z",
+  "online": true,
+  "state": "online",
+  "last_heartbeat_gmt": "2026-11-01T23:07:49Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-12T15:22:20Z",
   "record_by": "open",
@@ -1435,19 +1435,31 @@
     [
       "2026-10-30",
       129.45
+    ],
+    [
+      "2026-11-01",
+      126.91
     ]
   ],
-  "period_return": 29.45,
-  "return_1m": 29.45,
-  "return_3m": 29.45,
-  "return_12m": 29.45,
+  "period_return": 26.91,
+  "return_1m": 26.91,
+  "return_3m": 26.91,
+  "return_12m": 26.91,
   "max_drawdown": 9.34,
-  "current_drawdown": 0.26,
-  "trades_total": 488,
-  "win_rate": 50.0,
+  "current_drawdown": 2.21,
+  "trades_total": 489,
+  "win_rate": 49.9,
   "avg_hold_minutes": 33,
-  "trades_today": 0,
+  "trades_today": 1,
   "closed_trades_recent": [
+    {
+      "opened_gmt": "2026-11-01T23:01:55Z",
+      "closed_gmt": "2026-11-01T23:05:23Z",
+      "side": "SELL",
+      "hold_minutes": 3,
+      "result_points": -1203.0,
+      "result_pct": -1.961
+    },
     {
       "opened_gmt": "2026-10-30T20:20:06Z",
       "closed_gmt": "2026-10-30T20:40:07Z",
@@ -1535,17 +1547,17 @@
       "hold_minutes": 23,
       "result_points": -780.0,
       "result_pct": -1.32
-    },
-    {
-      "opened_gmt": "2026-10-30T08:01:13Z",
-      "closed_gmt": "2026-10-30T08:15:24Z",
-      "side": "SELL",
-      "hold_minutes": 14,
-      "result_points": -958.0,
-      "result_pct": -1.595
     }
   ],
   "closed_trades_all": [
+    {
+      "opened_gmt": "2026-11-01T23:01:55Z",
+      "closed_gmt": "2026-11-01T23:05:23Z",
+      "side": "SELL",
+      "hold_minutes": 3,
+      "result_points": -1203.0,
+      "result_pct": -1.961
+    },
     {
       "opened_gmt": "2026-10-30T20:20:06Z",
       "closed_gmt": "2026-10-30T20:40:07Z",
