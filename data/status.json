@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-11-04T22:59:05Z",
+  "generated_gmt": "2026-11-04T23:07:10Z",
   "source": "LIVE",
   "demo_notice": false,
-  "online": false,
-  "state": "idle",
-  "last_heartbeat_gmt": "2026-11-04T22:58:49Z",
+  "online": true,
+  "state": "online",
+  "last_heartbeat_gmt": "2026-11-04T23:06:49Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-12T15:22:20Z",
   "record_by": "open",
@@ -1450,20 +1450,28 @@
     ],
     [
       "2026-11-04",
-      117.05
+      115.61
     ]
   ],
-  "period_return": 17.05,
-  "return_1m": 17.05,
-  "return_3m": 17.05,
-  "return_12m": 17.05,
-  "max_drawdown": 16.45,
-  "current_drawdown": 15.79,
-  "trades_total": 580,
-  "win_rate": 49.3,
+  "period_return": 15.61,
+  "return_1m": 15.61,
+  "return_3m": 15.61,
+  "return_12m": 15.61,
+  "max_drawdown": 16.82,
+  "current_drawdown": 16.82,
+  "trades_total": 581,
+  "win_rate": 49.2,
   "avg_hold_minutes": 33,
-  "trades_today": 24,
+  "trades_today": 25,
   "closed_trades_recent": [
+    {
+      "opened_gmt": "2026-11-04T21:55:07Z",
+      "closed_gmt": "2026-11-04T23:01:05Z",
+      "side": "SELL",
+      "hold_minutes": 66,
+      "result_points": -541.0,
+      "result_pct": -1.231
+    },
     {
       "opened_gmt": "2026-11-04T18:31:57Z",
       "closed_gmt": "2026-11-04T19:09:38Z",
@@ -1551,17 +1559,17 @@
       "hold_minutes": 7,
       "result_points": -654.0,
       "result_pct": -1.158
-    },
-    {
-      "opened_gmt": "2026-11-04T08:25:09Z",
-      "closed_gmt": "2026-11-04T09:10:01Z",
-      "side": "SELL",
-      "hold_minutes": 45,
-      "result_points": -1551.0,
-      "result_pct": -2.673
     }
   ],
   "closed_trades_all": [
+    {
+      "opened_gmt": "2026-11-04T21:55:07Z",
+      "closed_gmt": "2026-11-04T23:01:05Z",
+      "side": "SELL",
+      "hold_minutes": 66,
+      "result_points": -541.0,
+      "result_pct": -1.231
+    },
     {
       "opened_gmt": "2026-11-04T18:31:57Z",
       "closed_gmt": "2026-11-04T19:09:38Z",
