@@ -1,11 +1,11 @@
 {
   "schema": "rionea99.status/1",
-  "generated_gmt": "2026-11-05T13:23:21Z",
+  "generated_gmt": "2026-11-05T13:31:27Z",
   "source": "LIVE",
   "demo_notice": false,
   "online": true,
   "state": "online",
-  "last_heartbeat_gmt": "2026-11-05T13:22:49Z",
+  "last_heartbeat_gmt": "2026-11-05T13:30:49Z",
   "brain_version": "ai-first-0.1 / deepseek",
   "record_since_gmt": "2026-10-12T15:22:20Z",
   "record_by": "open",
@@ -1454,20 +1454,28 @@
     ],
     [
       "2026-11-05",
-      118.44
+      119.71
     ]
   ],
-  "period_return": 18.44,
-  "return_1m": 18.88,
-  "return_3m": 18.44,
-  "return_12m": 18.44,
+  "period_return": 19.71,
+  "return_1m": 20.15,
+  "return_3m": 19.71,
+  "return_12m": 19.71,
   "max_drawdown": 18.22,
-  "current_drawdown": 14.79,
-  "trades_total": 596,
-  "win_rate": 49.3,
+  "current_drawdown": 13.88,
+  "trades_total": 597,
+  "win_rate": 49.4,
   "avg_hold_minutes": 33,
-  "trades_today": 14,
+  "trades_today": 15,
   "closed_trades_recent": [
+    {
+      "opened_gmt": "2026-11-05T13:06:01Z",
+      "closed_gmt": "2026-11-05T13:30:45Z",
+      "side": "SELL",
+      "hold_minutes": 25,
+      "result_points": 602.0,
+      "result_pct": 1.072
+    },
     {
       "opened_gmt": "2026-11-05T13:15:08Z",
       "closed_gmt": "2026-11-05T13:20:12Z",
@@ -1555,17 +1563,17 @@
       "hold_minutes": 4,
       "result_points": -1104.0,
       "result_pct": -2.982
-    },
-    {
-      "opened_gmt": "2026-11-05T04:51:07Z",
-      "closed_gmt": "2026-11-05T05:20:32Z",
-      "side": "BUY",
-      "hold_minutes": 29,
-      "result_points": -697.0,
-      "result_pct": -1.848
     }
   ],
   "closed_trades_all": [
+    {
+      "opened_gmt": "2026-11-05T13:06:01Z",
+      "closed_gmt": "2026-11-05T13:30:45Z",
+      "side": "SELL",
+      "hold_minutes": 25,
+      "result_points": 602.0,
+      "result_pct": 1.072
+    },
     {
       "opened_gmt": "2026-11-05T13:15:08Z",
       "closed_gmt": "2026-11-05T13:20:12Z",
